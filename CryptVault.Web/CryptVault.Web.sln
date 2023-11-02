@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33801.468
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptVault.Web", "CryptVault.Web.csproj", "{71C113D8-5B3C-4E2A-9905-0385A3710550}"
+	ProjectSection(ProjectDependencies) = postProject
+		{45C13822-48B4-4EBB-8CD8-4E345891E885} = {45C13822-48B4-4EBB-8CD8-4E345891E885}
+		{9E543CC1-48ED-427A-8646-23CDFDE11CB5} = {9E543CC1-48ED-427A-8646-23CDFDE11CB5}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptVault.Core", "..\CryptVault.Core\CryptVault.Core.csproj", "{45C13822-48B4-4EBB-8CD8-4E345891E885}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptVault.Data", "..\CryptVault.Data\CryptVault.Data.csproj", "{9E543CC1-48ED-427A-8646-23CDFDE11CB5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{71C113D8-5B3C-4E2A-9905-0385A3710550}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71C113D8-5B3C-4E2A-9905-0385A3710550}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71C113D8-5B3C-4E2A-9905-0385A3710550}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71C113D8-5B3C-4E2A-9905-0385A3710550}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45C13822-48B4-4EBB-8CD8-4E345891E885}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45C13822-48B4-4EBB-8CD8-4E345891E885}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45C13822-48B4-4EBB-8CD8-4E345891E885}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45C13822-48B4-4EBB-8CD8-4E345891E885}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E543CC1-48ED-427A-8646-23CDFDE11CB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E543CC1-48ED-427A-8646-23CDFDE11CB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E543CC1-48ED-427A-8646-23CDFDE11CB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E543CC1-48ED-427A-8646-23CDFDE11CB5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2500ACA8-E869-4243-9A05-246F4444BC84}
+	EndGlobalSection
+EndGlobal
