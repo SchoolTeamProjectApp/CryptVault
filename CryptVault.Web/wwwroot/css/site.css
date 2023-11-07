@@ -16,3 +16,7 @@ html {
 body {
   margin-bottom: 60px;
 }
+#particles-js {
+    pointer-events: all;
+    z-index: -1; /* Ensure it's behind other elements */
+}
