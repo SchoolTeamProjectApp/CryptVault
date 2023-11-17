@@ -1,7 +1,7 @@
 # CrypVault
 ### ASP.NET MVC Web application for password and card managment.
 
-| |Contributors|
+| |Team|
 |:---:|:---:|
 |<img style="width: 50px; border-radius: 50%;" src="https://github.com/Dzhanel.png">|[Dzhanel Mehmed](https://github.com/Dzhanel)|
 |<img style="width: 50px; border-radius: 50%;" src="https://github.com/GospodinChem.png">|[Daniel Chemshirov](https://github.com/GospodinChem)|
