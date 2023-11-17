@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http;
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -21,23 +23,12 @@
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
-    <div class="container-fluid position-relative d-flex p-0"
-
-
-        <!-- Sidebar Start -->
+    <div class="container-fluid position-relative d-flex p-0">
+        <!-- Sidebar Start -->  
+        <div id="particles-js" class="position-fixed top-0 left-0 w-100 h-100"></div>
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-secondary navbar-dark">
                 <a href="#" class="navbar-brand mx-4 mb-3">
@@ -54,26 +45,26 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="#" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    @*<a href="#" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>*@
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Elements</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-credit-card me-2"></i>Payment Cards</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="#" class="dropdown-item">Buttons</a>
                             <a href="#" class="dropdown-item">Typography</a>
                             <a href="#" class="dropdown-item">Other Elements</a>
                         </div>
                     </div>
-                    <a href="#" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Widgets</a>
+@*                  <a href="#" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Widgets</a>
                     <a href="#" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Forms</a>
                     <a href="#" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Tables</a>
-                    <a href="#" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
+                    <a href="#" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>*@
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pages</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Passwords</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="#" class="dropdown-item">Sign In</a>
-                            <a href="#" class="dropdown-item">Sign Up</a>
-                            <a href="#" class="dropdown-item">404 Error</a>
-                            <a href="#" class="dropdown-item active">Blank Page</a>
+                            <a href="#" class="dropdown-item">Website 1</a>
+                            <a href="#" class="dropdown-item">Website 2</a>
+                            <a href="#" class="dropdown-item">Website 3</a>
+                            <a href="#" class="dropdown-item active">Website 4</a>
                         </div>
                     </div>
                 </div>
@@ -83,7 +74,7 @@
 
 
         <!-- Content Start -->
-        <div class="content">
+        <div class="content bg-transparent">
             <!-- Navbar Start -->
             <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
                 <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
@@ -118,13 +109,14 @@
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-secondary rounded-top p-4">
                     <div class="row">
-                        <div class="col-12 col-sm-6 text-center text-sm-start">
-                            &copy; <a href="#">Your Site Name</a>, All Right Reserved.
+                        <div class="col col-sm text-center text-sm-start">
+                            &copy; <a href="#">CryptVault</a>
                         </div>
-                        <div class="col-12 col-sm-6 text-center text-sm-end">
-                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                            Designed By <a href="https://htmlcodex.com">HTML Codex</a>
-                            <br>Distributed By: <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+                        <div class="col col-sm text-center text-sm-center">
+                            <span class="text-center" id="clock">0:00:00</span>
+                        </div>
+                        <div class="col col-sm text-center text-sm-end">
+                            <a href="https://github.com/SchoolTeamProjectApp/CryptVault">Github<i class="bi bi-github mx-1"></i></a>
                         </div>
                     </div>
                 </div>
@@ -142,6 +134,8 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js"></script>
+    <script src="~/lib/particleJS/particles.js"></script>
+    <script src="~/js/bgParticles.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 
