@@ -12,15 +12,17 @@ namespace CryptVault.Web.Controllers
 			this.cardService = _cardService;
 		}
 
-		public IActionResult Index()
-		{
-			return View();
-		}
 
 		[HttpGet]
 		public async Task<IActionResult> MyCards(Guid id)
 		{
 			var cards = await cardService.GetCardsByUserIdAsync(id);
+			return View(cards);
+		}
+
+		[HttpGet]
+		public IActionResult AddCard() 
+		{ 
 			return View();
 		}
 	}
