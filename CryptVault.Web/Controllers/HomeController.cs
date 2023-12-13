@@ -1,4 +1,5 @@
 ﻿using CryptVault.Web.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -6,6 +7,7 @@ namespace CryptVault.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly SignInManager<IdentityUser> signInManager;
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
