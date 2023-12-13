@@ -9,7 +9,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CryptVault.Core.Services
 {
-    [Authorize]
     public class PasswordService : IPasswordService
     {
         private readonly IRepository repo;

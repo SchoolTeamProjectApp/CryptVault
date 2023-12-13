@@ -24,10 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="Models\Card\" />
     <Folder Include="Models\Password\" />
-    <Folder Include="Services\" />
   </ItemGroup>
 
   <ItemGroup>

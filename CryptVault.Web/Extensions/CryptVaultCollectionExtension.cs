@@ -13,6 +13,7 @@ namespace Microsoft.Extensions.DependencyInjection
             AutoMapperConfig(services);
             services.AddScoped<IRepository, Repository>();
             services.AddScoped<IPasswordService, PasswordService>();
+            services.AddScoped<ICardService, CardService>();
 
             return services;
         }
