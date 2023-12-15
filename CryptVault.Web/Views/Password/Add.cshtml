@@ -1,0 +1,39 @@
+﻿@model AddPasswordViewModel
+@inject SignInManager<ApplicationUser> signInManager;
+
+@{
+    ViewData["Title"] = "Add Password";
+}
+<div class="col-sm-12 col-xl-6">
+    <div class="bg-secondary rounded h-100 p-4">
+        <form asp-action="Add" method="post">
+            <div class="form-floating mb-3">
+                <input asp-for="Email" type="email" type="email" class="form-control" id="floatingInput"
+                       placeholder="name@example.com">
+                <label asp-for="Email" for="floatingInput">Email address</label>
+                <span asp-validation-for="Email" class="text-primary"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Username" type="text" class="form-control" id="floatingInput"
+                       placeholder="Username">
+                <label asp-for="Username">Username</label>
+                <span asp-validation-for="Username" class="text-primary"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Website" type="text" class="form-control" id="floatingInput"
+                       placeholder="Website">
+                <label asp-for="Website">Website</label>
+                <span asp-validation-for="Website" class="text-primary"></span>
+            </div>
+            <div class="form-floating">
+                <textarea asp-for="Description" class="form-control" placeholder="Leave a comment here"
+                          id="floatingTextarea" style="height: 150px;"></textarea>
+                <label for="floatingTextarea" asp-for="Description">Leave a comment here</label>
+                <span asp-validation-for="Website" class="text-primary"></span>
+            </div>
+            <div class="form-group mt-2">
+                <input type="submit" value="Add" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

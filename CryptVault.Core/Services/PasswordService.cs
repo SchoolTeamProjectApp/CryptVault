@@ -1,10 +1,8 @@
 ﻿using AutoMapper;
 using CryptVault.Core.Interfaces;
 using CryptVault.Core.Models.Password;
-using CryptVault.Data;
 using CryptVault.Data.Common;
 using CryptVault.Data.Entities;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 
 namespace CryptVault.Core.Services
@@ -22,9 +20,18 @@ namespace CryptVault.Core.Services
         public async Task<List<PasswordViewModel>> GetPasswordsByUserIdAsync(Guid userId)
         {
             return await repo.AllReadonly<Password>()
-                .Where(x => x.Id == userId)
+                .Where(x => userId == x.UserId)
                 .Select(x => autoMapper.Map<PasswordViewModel>(x))
                 .ToListAsync();
+        }
+        public async Task<Guid> CreateAsync(AddPasswordViewModel model)
+        {
+            var password = autoMapper.Map<Password>(model);
+            password.Id = Guid.NewGuid();
+            await repo.AddAsync(password);
+            await repo.SaveChangesAsync();
+            return password.Id;
+
         }
     }
 }

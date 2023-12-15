@@ -9,8 +9,9 @@ namespace CryptVault.Core.Extensions
     {
         public ApplicationMappingProfile()
         {
-            CreateMap<Password, PasswordViewModel>();
-            CreateMap<Card, CardViewModel>();
+            CreateMap<Password, PasswordViewModel>().ReverseMap();
+            CreateMap<Card, CardViewModel>().ReverseMap();
+            CreateMap<Password, AddPasswordViewModel>().ReverseMap();   
         }
     }
 }

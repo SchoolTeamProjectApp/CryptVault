@@ -30,8 +30,4 @@
     <ProjectReference Include="..\CryptVault.Data\CryptVault.Data.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Extensions\" />
-  </ItemGroup>
-
 </Project>

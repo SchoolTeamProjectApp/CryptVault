@@ -27,7 +27,7 @@ namespace CryptVault.Core.Services
 		public async Task<List<CardViewModel>> GetCardsByUserIdAsync(Guid userId)
 		{
 			return await repo.AllReadonly<Card>()
-				.Where(x => x.Id == userId)
+				.Where(x => x.UserId == userId)
 				.Select(x => autoMapper.Map<CardViewModel>(x))
 				.ToListAsync();
 		}

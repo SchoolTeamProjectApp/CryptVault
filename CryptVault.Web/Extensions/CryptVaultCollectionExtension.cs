@@ -14,13 +14,13 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddScoped<IRepository, Repository>();
             services.AddScoped<IPasswordService, PasswordService>();
             services.AddScoped<ICardService, CardService>();
-
             return services;
         }
 
         private static void AutoMapperConfig(IServiceCollection services)
         {
-            MapperConfiguration mapperConfiguration = new(mc => mc.AddProfile(new ApplicationMappingProfile()));
+            MapperConfiguration mapperConfiguration = new(mc => 
+                            mc.AddProfile(new ApplicationMappingProfile()));
             services.AddSingleton(mapperConfiguration.CreateMapper());
         }
     }

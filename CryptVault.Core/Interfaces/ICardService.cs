@@ -10,5 +10,7 @@ namespace CryptVault.Core.Interfaces
 	public interface ICardService
 	{
 		public Task<List<CardViewModel>> GetCardsByUserIdAsync(Guid userId);
+
+
 	}
 }

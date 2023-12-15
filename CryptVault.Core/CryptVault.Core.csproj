@@ -24,10 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\Password\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\CryptVault.Data\CryptVault.Data.csproj" />
   </ItemGroup>
 
