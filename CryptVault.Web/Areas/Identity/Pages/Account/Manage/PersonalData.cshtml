@@ -1,12 +1,10 @@
 ﻿@page
 @model PersonalDataModel
 @{
-	ViewData["Title"] = "Personal Data";
-	ViewData["ActivePage"] = ManageNavPages.PersonalData;
-	Layout = "Layouts/_PanelLayout";
+    ViewData["Title"] = "Personal Data";
+    ViewData["ActivePage"] = ManageNavPages.PersonalData;
+    Layout = "Layouts/_PanelLayout";
 }
-
-<body>
 	<h3 style="margin-top: 32px; text-align: center">@ViewData["Title"]</h3>
 
 	<div class="bg-secondary rounded h-100 p-4">
@@ -21,7 +19,6 @@
 			</form>
 		</div>
 	</div>
-</body>
 
 @section Scripts {
 	<partial name="_ValidationScriptsPartial" />

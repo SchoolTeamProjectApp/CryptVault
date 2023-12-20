@@ -1,16 +1,24 @@
 ﻿using CryptVault.Web.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace CryptVault.Web.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
 
         public HomeController()
         {
             
+        }
+
+        [AllowAnonymous]
+        public IActionResult LandingPage()
+        {
+            return View();
         }
 
         public IActionResult Index()
