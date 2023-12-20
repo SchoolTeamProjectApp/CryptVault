@@ -31,5 +31,19 @@ namespace CryptVault.Core.Services
 				.Select(x => autoMapper.Map<CardViewModel>(x))
 				.ToListAsync();
 		}
-	}
+        public async Task<bool> ExistsById(Guid passwordId)
+        {
+            return await repo.AllReadonly<Password>()
+                             .AnyAsync(c => c.Id == passwordId);
+        }
+
+        public async Task<Guid> CreateAsync(AddCardViewModel model)
+        {
+            var password = autoMapper.Map<Password>(model);
+            password.Id = Guid.NewGuid();
+            await repo.AddAsync(password);
+            await repo.SaveChangesAsync();
+            return password.Id;
+        }
+    }
 }

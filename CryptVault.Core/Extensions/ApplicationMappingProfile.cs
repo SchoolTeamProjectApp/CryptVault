@@ -25,5 +25,9 @@ namespace CryptVault.Core.Extensions
         {
             CreateMap<Card, CardViewModel>().ReverseMap();
         }
+        public void CardMaps()
+        {
+            CreateMap<Card, CardViewModel>().ReverseMap();
+        }
     }
 }

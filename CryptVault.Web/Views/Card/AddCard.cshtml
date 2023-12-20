@@ -1,3 +1,46 @@
-﻿
+﻿@using CryptVault.Data.Entities;
+@using Microsoft.AspNetCore.Identity;
+@model AddCardViewModel
+@inject SignInManager<ApplicationUser> signInManager;
+
 @{
+    ViewData["Title"] = "Add Card";
 }
+
+<div class="bg-secondary rounded h-100 p-4">
+    <form asp-action="Add" method="post">
+        <div class="form-floating mb-3">
+            <input asp-for="Name" type="text" class="form-control" id="floatingInput"
+                   placeholder="Name">
+            <label asp-for="Name">Name</label>
+            <span asp-validation-for="Name" class="text-primary"></span>
+        </div>
+        <div class="form-floating mb-3">
+            <input asp-for="CCV" type="text" class="form-control" id="floatingInput"
+                   placeholder="CCV">
+            <label asp-for="CCV" for="floatingInput">CCV</label>
+            <span asp-validation-for="CCV" class="text-primary"></span>
+        </div>
+        <div class="form-floating mb-3">
+            <input asp-for="ExpireMonth" type="month" class="form-control" id="floatingInput"
+                   placeholder="ExpireMonth">
+            <label asp-for="ExpireMonth">ExpireMonth</label>
+            <span asp-validation-for="ExpireMonth" class="text-primary"></span>
+        </div>
+        <div class="form-floating mb-3">
+            <input asp-for="ExpireYear" type="number" class="form-control" id="floatingInput"
+                   placeholder="ExpireYear">
+            <label asp-for="ExpireYear">ExpireYear</label>
+            <span asp-validation-for="ExpireYear" class="text-primary"></span>
+        </div>
+        <div class="form-floating mb-3">
+            <input asp-for="NameOnCard" type="number" class="form-control" id="floatingInput"
+                   placeholder="ExpireMonth">
+            <label asp-for="NameOnCard">Name on card</label>
+            <span asp-validation-for="NameOnCard" class="text-primary"></span>
+        </div>
+        <div class="form-group mt-2">
+            <input type="submit" value="Add" class="btn btn-primary w-25" />
+        </div>
+    </form>
+</div>
