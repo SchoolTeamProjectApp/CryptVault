@@ -4,6 +4,7 @@
   "libraries": [
     {
       "provider": "cdnjs",
+      "library": "favico.js@0.3.10",
       "destination": "wwwroot/lib/favico.js/"
     }
   ]
