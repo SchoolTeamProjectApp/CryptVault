@@ -3,8 +3,10 @@
 
 @{
     ViewData["Title"] = "Add Password";
+    Layout = "Layouts/_PanelLayout";
 }
 <div class="bg-secondary rounded h-100 p-4">
+    <h4 class="text-primary">Add New Password</h4>
     <form asp-action="Add" method="post">
         <div class="form-floating mb-3">
             <input asp-for="Website" type="text" class="form-control" id="floatingInput"

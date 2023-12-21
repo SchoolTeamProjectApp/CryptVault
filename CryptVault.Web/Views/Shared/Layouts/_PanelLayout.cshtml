@@ -36,14 +36,6 @@
                 <a asp-action="Index" asp-controller="Home" class="navbar-brand mx-4 mb-3">
                     <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>CryptVault</h3>
                 </a>
-@*                <div class="d-flex align-items-center ms-4 mb-4">
-                    <div class="position-relative">
-                        <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
-                    </div>
-                    <div class="ms-3">
-                        <h6 class="mb-0">Jhon Doe</h6>
-                    </div>
-                </div>*@
                 <div class="navbar-nav w-100">
                     <a asp-controller="Password" asp-action="MyPasswords" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>My Passwords</a>
                     <a asp-controller="Cards" asp-action="MyCards" class="nav-item nav-link"><i class="fa fa-credit-card me-2"></i>My Cards</a>
@@ -58,7 +50,7 @@
                 <a asp-controller="Home" asp-action="Index" class="navbar-brand d-flex d-lg-none me-4">
                     <h2 class="text-primary mb-0"><i class="fa fa-user-edit"></i></h2>
                 </a>
-                <a class="sidebar-toggler flex-shrink-0">
+                <a class="sidebar-toggler flex-shrink-0" href="#">
                     <i class="fa fa-bars"></i>
                 </a>
                 <div class="navbar-nav align-items-center ms-auto">
@@ -68,7 +60,7 @@
             <!-- Navbar End -->
             <!-- Blank Start -->
             <div class="container-fluid pt-4 px-4">
-                <div class="row vh-100 bg-secondary rounded justify-content-center mx-0">
+                <div class="row vh-100 bg-secondary rounded justify-content-center mx-0 overflow-auto">
                     @RenderBody()
                 </div>
             </div>
@@ -81,7 +73,7 @@
                             &copy; <a href="#">CryptVault</a>
                         </div>
                         <div class="col col-sm text-center text-sm-center">
-                            <span class="text-center" id="clock">0:00:00</span>
+                            <span class="text-center" id="clock">@DateTime.Now.ToString("hh:mm:ss")</span>
                         </div>
                         <div class="col col-sm text-center text-sm-end">
                             <a href="https://github.com/SchoolTeamProjectApp/CryptVault">Github<i class="bi bi-github mx-1"></i></a>
