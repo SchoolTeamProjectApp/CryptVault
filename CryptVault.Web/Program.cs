@@ -13,9 +13,11 @@ namespace CryptVault.Web
 
             // Add services to the container.
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-            builder.Services.AddApplicationServices();
+            
+            
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(connectionString));
+            
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
             builder.Services.AddDefaultIdentity<ApplicationUser>(options => {
@@ -26,6 +28,7 @@ namespace CryptVault.Web
                 .AddRoles<IdentityRole<Guid>>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
+            builder.Services.AddApplicationServices();
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
