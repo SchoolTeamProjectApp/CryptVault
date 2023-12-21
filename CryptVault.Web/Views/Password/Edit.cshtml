@@ -1,11 +1,13 @@
-﻿@model AddPasswordViewModel
+﻿@model EditPasswordViewModel
 @inject SignInManager<ApplicationUser> signInManager;
 
 @{
-    ViewData["Title"] = "Add Password";
+    ViewData["Title"] = "Edit Password";
+    Layout = "Layouts/_PanelLayout";
 }
 <div class="bg-secondary rounded h-100 p-4">
-    <form asp-action="Add" method="post">
+    <form asp-action="Edit" method="post">
+        <input type="hidden" asp-for="Id" value="@Model.Id">
         <div class="form-floating mb-3">
             <input asp-for="Website" type="text" class="form-control" id="floatingInput"
                    placeholder="Website">
@@ -31,7 +33,7 @@
             <span asp-validation-for="Website" class="text-primary"></span>
         </div>
         <div class="form-group mt-2">
-            <input type="submit" value="Add" class="btn btn-primary w-25" />
+            <input type="submit" value="Edit" class="btn btn-primary w-25" />
         </div>
     </form>
 </div>
