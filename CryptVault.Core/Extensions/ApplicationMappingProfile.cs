@@ -13,17 +13,16 @@ namespace CryptVault.Core.Extensions
             PasswordMaps();
         }
 
+        public void CardMaps()
+        {
+            CreateMap<Card, CardViewModel>().ReverseMap();
+        }
         public void PasswordMaps()
         {
             CreateMap<Password, AddPasswordViewModel>().ReverseMap();
             CreateMap<Password, PasswordViewModel>().ReverseMap();
             CreateMap<Password, EditPasswordViewModel>().ReverseMap();
             CreateMap<PasswordViewModel, EditPasswordViewModel>().ReverseMap();
-        }
-
-        public void CardMaps()
-        {
-            CreateMap<Card, CardViewModel>().ReverseMap();
         }
     }
 }
