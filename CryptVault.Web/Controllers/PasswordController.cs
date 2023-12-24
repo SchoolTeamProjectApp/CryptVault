@@ -72,7 +72,6 @@ namespace CryptVault.Web.Controllers
 
             if (User.Id() != await passwordService.GetUserId(id))
             {
-                await Console.Out.WriteLineAsync("\u001b[31m SECOND");
                 ModelState.AddModelError("", "Access denied! You cannot access another users password!");
                 return RedirectToAction(nameof(MyPasswords));
             }

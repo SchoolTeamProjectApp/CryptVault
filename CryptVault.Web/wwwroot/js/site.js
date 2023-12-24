@@ -41,7 +41,34 @@
         $('.sidebar, .content').toggleClass("open");
         return false;
     });
-
+    var lock = new PatternLock("#lock", {
+        onPattern: function (pattern) {
+            // Context is the pattern lock instance
+            console.log(pattern)
+        }
+    });
+    $(document).ready(function () {
+        // Your jQuery code here
+        $("#lock").on('touchstart mousedown', function (e) {
+            var lock = new PatternLock("#lock", {
+                onPattern: function (pattern) {
+                    console.log(pattern);
+                }
+            });
+            
+        });
+        $('#submitBtn').on('click', function () {
+            var pattern = lock.getPattern(); // Get the current pattern
+            // Perform submission logic here (e.g., send pattern to server)
+            console.log("Submitted pattern: " + pattern);
+            lock.success(123);
+            // Clear the pattern after submission
+            lock.clear();
+        });
+    });
+    $('#myModal').on('shown.bs.modal', function () {
+        $('#myInput').trigger('focus')
+    })
 
 })(jQuery);
 
