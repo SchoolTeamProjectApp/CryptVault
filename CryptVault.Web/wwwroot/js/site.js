@@ -11,17 +11,6 @@
             $("#clock").text(new Date().toLocaleTimeString(userLocale, { hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false }));
      }, 1000);
 
-    // Spinner
-    var spinner = function () {
-        setTimeout(function () {
-            if ($('#spinner').length > 0) {
-                $('#spinner').removeClass('show');
-            }
-        }, 1);
-    };
-    spinner();
-
-
     // Back to top button
     $(window).scroll(function () {
         if ($(this).scrollTop() > 300) {
@@ -30,46 +19,43 @@
             $('.back-to-top').fadeOut('slow');
         }
     });
+
     $('.back-to-top').click(function () {
         $('html, body').animate({ scrollTop: 0 }, 1500, 'easeInOutExpo');
         return false;
     });
-
 
     // Sidebar Toggler
     $('.sidebar-toggler').click(function () {
         $('.sidebar, .content').toggleClass("open");
         return false;
     });
-    var lock = new PatternLock("#lock", {
-        onPattern: function (pattern) {
-            // Context is the pattern lock instance
-            console.log(pattern)
-        }
-    });
-    $(document).ready(function () {
-        // Your jQuery code here
-        $("#lock").on('touchstart mousedown', function (e) {
-            var lock = new PatternLock("#lock", {
-                onPattern: function (pattern) {
-                    console.log(pattern);
-                }
-            });
-            
-        });
-        $('#submitBtn').on('click', function () {
-            var pattern = lock.getPattern(); // Get the current pattern
-            // Perform submission logic here (e.g., send pattern to server)
-            console.log("Submitted pattern: " + pattern);
-            lock.success(123);
-            // Clear the pattern after submission
-            lock.clear();
-        });
-    });
+
+    //Modal toggler
     $('#myModal').on('shown.bs.modal', function () {
         $('#myInput').trigger('focus')
     })
 
+    //Pattern validation
+    let lock = new PatternLock("#lock", {
+        onPattern: function (pattern) {
+            console.log(pattern);
+            error();
+        }
+    });
+
+    // Add event listener to the Submit button
+    $("#submitBtn").on("click", function () {
+        let pattern = lock.getPattern();
+        console.log(pattern);
+        // Clear the pattern after submission
+        lock.clear();
+        error();
+        clearActiveIndicators()
+    });
+    function clearActiveIndicators() {
+        $(".lock-actives circle").text = '';
+    }
 })(jQuery);
 
 
