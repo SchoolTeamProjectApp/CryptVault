@@ -40,7 +40,6 @@
     let lock = new PatternLock("#lock", {
         onPattern: function (pattern) {
             console.log(pattern);
-            error();
         }
     });
 
@@ -49,12 +48,12 @@
         let pattern = lock.getPattern();
         console.log(pattern);
         // Clear the pattern after submission
+        lock.error();
         lock.clear();
-        error();
         clearActiveIndicators()
     });
     function clearActiveIndicators() {
-        $(".lock-actives circle").text = '';
+        $(".lock-actives circle").text = null;
     }
 })(jQuery);
 

@@ -1,5 +1,6 @@
 using CryptVault.Data;
 using CryptVault.Data.Entities;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;    
 
@@ -13,8 +14,7 @@ namespace CryptVault.Web
 
             // Add services to the container.
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-            
-            
+
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(connectionString));
             
@@ -29,6 +29,7 @@ namespace CryptVault.Web
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             builder.Services.AddApplicationServices();
+            builder.Services.AddDataProtection();
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();

@@ -28,5 +28,7 @@ namespace CryptVault.Data.Entities
         [ForeignKey(nameof(User))]
         public Guid UserId { get; set; }
         public ApplicationUser User { get; set; } = null!;
+        public string HashedPattern { get; set; } = null!;
+        public string EncryptedPassword { get; set; } = null!;
     }
 }

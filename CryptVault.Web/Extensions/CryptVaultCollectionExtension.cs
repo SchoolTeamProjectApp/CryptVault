@@ -14,6 +14,7 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddScoped<IRepository, Repository>();
             services.AddScoped<IPasswordService, PasswordService>();
             services.AddScoped<ICardService, CardService>();
+            services.AddScoped<IEncryptionService, EncryptionService>();
             return services;
         }
 
