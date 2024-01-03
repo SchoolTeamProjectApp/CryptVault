@@ -3,6 +3,8 @@ using CryptVault.Core.Interfaces;
 using CryptVault.Core.Services;
 using AutoMapper;
 using CryptVault.Core.Extensions;
+using Microsoft.AspNetCore.Identity;
+using CryptVault.Data.Entities;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -15,6 +17,8 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddScoped<IPasswordService, PasswordService>();
             services.AddScoped<ICardService, CardService>();
             services.AddScoped<IEncryptionService, EncryptionService>();
+            services.AddScoped<IHashingService, HashingService>();
+            services.AddScoped<IPasswordHasher<object>, PasswordHasher<object>>();
             return services;
         }
 

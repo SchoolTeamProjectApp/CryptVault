@@ -3,8 +3,6 @@ using CryptVault.Core.Interfaces;
 using CryptVault.Core.Models.Password;
 using CryptVault.Data.Common;
 using CryptVault.Data.Entities;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 
 namespace CryptVault.Core.Services
@@ -12,14 +10,19 @@ namespace CryptVault.Core.Services
     public class PasswordService : IPasswordService
     {
         public readonly IEncryptionService encryptionService;
+        public readonly IHashingService hashingService;
         private readonly IRepository repo;
         private readonly IMapper autoMapper;
 
-        public PasswordService(IRepository _repo, IMapper _autoMapper, IEncryptionService _encryptionService)
+        public PasswordService(IRepository _repo,
+            IMapper _autoMapper, 
+            IEncryptionService _encryptionService,
+            IHashingService _hashingService)
         {
             this.repo = _repo;
             this.autoMapper = _autoMapper;
             this.encryptionService = _encryptionService;
+            hashingService = _hashingService;
         }
 
         public async Task<List<PasswordViewModel>> GetPasswordsByUserIdAsync(Guid userId)
@@ -58,7 +61,7 @@ namespace CryptVault.Core.Services
             var password = autoMapper.Map<Password>(model);
             password.Id = Guid.NewGuid();
             password.EncryptedPassword = encryptionService.Encrypt(model.Password);
-            password.HashedPattern = "123441";
+            password.HashedPattern = hashingService.HashData("Not implemnted");
             await repo.AddAsync(password);
             await repo.SaveChangesAsync();
             return password.Id;
