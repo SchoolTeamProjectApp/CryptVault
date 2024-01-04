@@ -1,4 +1,8 @@
 ﻿using CryptVault.Core.Interfaces;
+using CryptVault.Core.Models.Card;
+using CryptVault.Core.Models.Password;
+using CryptVault.Core.Services;
+using CryptVault.Web.Extensions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CryptVault.Web.Controllers
@@ -25,5 +29,26 @@ namespace CryptVault.Web.Controllers
 		{ 
 			return View();
 		}
+
+		[HttpPost]
+		public async Task<IActionResult> AddCard(AddCardViewModel model)
+		{
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            try
+            {
+                model.UserId = User.Id();
+                await cardService.CreateAsync(model);
+            }
+            catch (Exception ms)
+            {
+                ModelState.AddModelError("", ms.Message);
+            }
+
+            return RedirectToAction(nameof(MyCards));
+        }
 	}
 }

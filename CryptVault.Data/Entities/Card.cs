@@ -21,7 +21,7 @@ namespace CryptVault.Data.Entities
         [StringLength(50)]
         public string NameOnCard { get; set; } = null!;
 
-        [ForeignKey(nameof(ApplicationUser))]
+        [ForeignKey(nameof(User))]
         public Guid UserId { get; set; }
         public ApplicationUser User { get; set; } = null!;
     }

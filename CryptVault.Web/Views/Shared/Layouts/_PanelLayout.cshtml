@@ -1,4 +1,6 @@
+@using CryptVault.Data.Entities;
 @using Microsoft.AspNetCore.Http;
+@using Microsoft.AspNetCore.Identity;
 @inject UserManager<ApplicationUser> userManager
 
 <!DOCTYPE html>
@@ -38,7 +40,7 @@
                 </a>
                 <div class="navbar-nav w-100">
                     <a asp-controller="Password" asp-action="MyPasswords" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>My Passwords</a>
-                    <a asp-controller="Cards" asp-action="MyCards" class="nav-item nav-link"><i class="fa fa-credit-card me-2"></i>My Cards</a>
+                    <a asp-controller="Card" asp-action="MyCards" class="nav-item nav-link"><i class="fa fa-credit-card me-2"></i>My Cards</a>
                 </div>
             </nav>
         </div>

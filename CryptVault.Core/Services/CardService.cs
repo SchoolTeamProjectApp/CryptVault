@@ -39,11 +39,11 @@ namespace CryptVault.Core.Services
 
         public async Task<Guid> CreateAsync(AddCardViewModel model)
         {
-            var password = autoMapper.Map<Password>(model);
-            password.Id = Guid.NewGuid();
-            await repo.AddAsync(password);
+            var card = autoMapper.Map<Card>(model);
+            card.Id = Guid.NewGuid();
+            await repo.AddAsync(card);
             await repo.SaveChangesAsync();
-            return password.Id;
+            return card.Id;
         }
     }
 }

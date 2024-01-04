@@ -5,10 +5,12 @@
 
 @{
     ViewData["Title"] = "Add Card";
+    Layout = "Layouts/_PanelLayout";
 }
 
 <div class="bg-secondary rounded h-100 p-4">
-    <form asp-action="Add" method="post">
+    <h4 class="text-primary">Add New Card</h4>
+    <form asp-action="AddCard" method="post">
         <div class="form-floating mb-3">
             <input asp-for="Name" type="text" class="form-control" id="floatingInput"
                    placeholder="Name">
@@ -22,7 +24,7 @@
             <span asp-validation-for="CCV" class="text-primary"></span>
         </div>
         <div class="form-floating mb-3">
-            <input asp-for="ExpireMonth" type="month" class="form-control" id="floatingInput"
+            <input asp-for="ExpireMonth" type="number" class="form-control" id="floatingInput"
                    placeholder="ExpireMonth">
             <label asp-for="ExpireMonth">ExpireMonth</label>
             <span asp-validation-for="ExpireMonth" class="text-primary"></span>
@@ -34,7 +36,7 @@
             <span asp-validation-for="ExpireYear" class="text-primary"></span>
         </div>
         <div class="form-floating mb-3">
-            <input asp-for="NameOnCard" type="number" class="form-control" id="floatingInput"
+            <input asp-for="NameOnCard" type="text" class="form-control" id="floatingInput"
                    placeholder="ExpireMonth">
             <label asp-for="NameOnCard">Name on card</label>
             <span asp-validation-for="NameOnCard" class="text-primary"></span>

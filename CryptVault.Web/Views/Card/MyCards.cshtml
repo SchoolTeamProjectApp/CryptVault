@@ -1,16 +1,19 @@
 ﻿@using Microsoft.AspNetCore.Identity;
 @model IEnumerable<CardViewModel>
 @{
+    Layout = "Layouts/_PanelLayout";
 }
 
 @if (this.User?.Identity?.IsAuthenticated != null && this.User.Identity.IsAuthenticated)
 {
-    <div class="text-secondary"><a asp-action="AddCard" asp-controller="Card" class="btn btn-primary"><i class="fa fa-solid fa-plus"></i> Add</a></div>
-
     <div class="container-fluid pt-4 px-4">
         <div class="row g-4">
             <div class="col-12">
                 <div class="bg-secondary rounded h-100 p-4">
+                    <a asp-controller="Card" asp-action="AddCard" class="btn btn-primary text-white">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                        Add Card
+                    </a>
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
