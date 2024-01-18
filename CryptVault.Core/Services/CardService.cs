@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using CryptVault.Core.Interfaces;
 using CryptVault.Core.Models.Card;
+using CryptVault.Core.Models.Password;
 using CryptVault.Data.Common;
 using CryptVault.Data.Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -31,10 +32,10 @@ namespace CryptVault.Core.Services
 				.Select(x => autoMapper.Map<CardViewModel>(x))
 				.ToListAsync();
 		}
-        public async Task<bool> ExistsById(Guid passwordId)
+        public async Task<bool> ExistsById(Guid cardId)
         {
-            return await repo.AllReadonly<Password>()
-                             .AnyAsync(c => c.Id == passwordId);
+            return await repo.AllReadonly<Card>()
+                             .AnyAsync(c => c.Id == cardId);
         }
 
         public async Task<Guid> CreateAsync(AddCardViewModel model)
@@ -44,6 +45,41 @@ namespace CryptVault.Core.Services
             await repo.AddAsync(card);
             await repo.SaveChangesAsync();
             return card.Id;
+        }
+
+
+
+        public async Task EditAsync(Guid id, EditCardViewModel model)
+        {
+            if (await ExistsById(id))
+            {
+                var card = await repo.GetByIdAsync<Card>(id);
+                card.Name = model.Name;
+                card.CCV = model.CCV;
+                card.ExpireMonth = model.ExpireMonth;
+                card.ExpireYear = model.ExpireYear;
+                card.NameOnCard = model.NameOnCard;
+                await repo.SaveChangesAsync();
+            }
+        }
+
+        public async Task<CardViewModel> GetCardById(Guid cardId)
+        {
+            return autoMapper
+                .Map<CardViewModel>(
+                    await repo.GetByIdAsync<Card>(cardId));
+        }
+
+        public async Task<Guid> GetUserId(Guid cardId)
+        {
+            if (await ExistsById(cardId))
+            {
+                return (await repo.GetByIdAsync<Card>(cardId)).UserId;
+            }
+            else
+            {
+                return Guid.Empty;
+            }
         }
     }
 }
