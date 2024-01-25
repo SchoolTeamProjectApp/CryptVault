@@ -60,6 +60,11 @@
                 <partial name="_LoginPartial" />
             </nav>
             <!-- Navbar End -->
+            <!-- Sub nav -->
+            @if (Url.RouteUrl(ViewContext.RouteData.Values)!.StartsWith("/Identity/Account/"))
+            {
+                <partial name="_SubNav"/>
+            }
             <!-- Blank Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="row vh-100 bg-secondary rounded justify-content-center mx-0 overflow-auto">
